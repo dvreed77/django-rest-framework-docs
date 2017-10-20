@@ -39,7 +39,7 @@ class ApiEndpoint(object):
         fields = []
         serializer = None
 
-        if hasattr(self.callback.cls, 'serializer_class'):
+        if hasattr(self.callback.cls, 'serializer_class') and self.callback.cls.serializer_class is not None:
             serializer = self.callback.cls.serializer_class
 
         elif hasattr(self.callback.cls, 'get_serializer_class'):
